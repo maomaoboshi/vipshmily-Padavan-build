@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       production:
-        description: 设置编译的固件型号,空格分隔.
+        description: RM2100
         default: "RM2100 MI-R4A R2100 K2P"
         required: false
       release:
@@ -14,7 +14,7 @@ on:
         required: false
         
 env:                      # 环境变量
-  MHZ: 1100               # CPU超频频率 必须为20的倍数，开启超频需开启95行超频开关
+  MHZ: 900               # CPU超频频率 必须为20的倍数，开启超频需开启95行超频开关
 
 jobs:
   build:
@@ -126,7 +126,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=n" >> .config #DNSFORWARDER
         echo "CONFIG_FIRMWARE_INCLUDE_TUNSAFE=n" >> .config #TUNSAFE
         echo "CONFIG_FIRMWARE_INCLUDE_SRELAY=n" >> .config #可以不集成
-        echo "CONFIG_FIRMWARE_CPU_900MHZ=y" >> .config #开启超频，仅MT7621可用
+        echo "CONFIG_FIRMWARE_CPU_900MHZ=n" >> .config #开启超频，仅MT7621可用
         ##科学上网## 特别注意，开启科学需要开启159行的shadowsocks，否则全部有关插件都不集成
         echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config #科学上网插件，选择n后全部有关插件都不集成
         echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=y" >> .config # simple-obfs混淆插件
