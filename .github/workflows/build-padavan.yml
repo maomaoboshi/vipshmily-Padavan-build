@@ -6,7 +6,7 @@ on:
     inputs:
       production:
         description: RM2100
-        default: "RM2100 MI-R4A R2100 K2P"
+        default: "RM2100"
         required: false
       release:
         description: "是否需要发布到Release? (不发布也可以到Artifacts下载)"
