@@ -14,11 +14,11 @@ on:
         required: false
         
 env:                      # 环境变量
-  MHZ: 900               # CPU超频频率 必须为20的倍数，开启超频需开启95行超频开关
+  MHZ: 880               # CPU超频频率 必须为20的倍数，开启超频需开启95行超频开关
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout
